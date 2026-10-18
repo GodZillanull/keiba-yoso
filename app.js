@@ -122,7 +122,7 @@
     fillDates(ix);
     const q = new URLSearchParams(location.search).get('d');
     await load(q && (ix.dates || []).includes(q) ? q : ix.latest);
-    setInterval(poll, 180000);
+    setInterval(poll, 60000);
     document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
   }
   init().catch(fail);
