@@ -122,7 +122,7 @@
     fillDates(ix);
     const q = new URLSearchParams(location.search).get('d');
     await load(q && (ix.dates || []).includes(q) ? q : ix.latest);
-    setInterval(poll, 60000);
+    setInterval(poll, 20000);   // 2026-10-25: 60 -> 20 s (index.json is small; new T-10 / T-5 picks show sooner)
     document.addEventListener('visibilitychange', () => { if (!document.hidden) poll(); });
   }
   init().catch(fail);
